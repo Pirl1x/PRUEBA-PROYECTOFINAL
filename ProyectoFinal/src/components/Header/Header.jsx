@@ -9,7 +9,7 @@ export default function Header() {
   return (
     <Box>
       <AppBar position="static">
-        <Toolbar sx={{display:"flex", justifyContent:"inherit"}}>
+        <Toolbar sx={{display:"flex", justifyContent:"space-between"}}>
           <SideBar/>
           <Typography variant="h6" component="div">
             TELECHISTE 3000

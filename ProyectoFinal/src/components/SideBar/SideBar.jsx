@@ -9,6 +9,7 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
+import { Link } from 'react-router-dom';
 
 export default function SideBar() {
   const [state, setState] = React.useState({
@@ -29,10 +30,11 @@ export default function SideBar() {
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
-    >
-      <List>
-        {["Chistes", "Favoritos"].map((text, index) => (
-          <ListItem key={text} disablePadding>
+      >
+        <List>
+        {["chistes", "favoritos"].map((text, index) => (
+            <Link to={`/${text}`} key={text} className='link'>
+          <ListItem  disablePadding>
             <ListItemButton>
               <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
@@ -40,6 +42,7 @@ export default function SideBar() {
               <ListItemText primary={text.toUpperCase()} />
             </ListItemButton>
           </ListItem>
+          </Link>
         ))}
       </List>
     </Box>
